@@ -2,8 +2,9 @@ import { makeStyles } from '@material-ui/styles';
 
 export const useStyles = makeStyles(() => ({
   root: {
-    minWidth: 275,
+    minWidth: 250,
     minHeight: 130,
+    backgroundColor: 'aliceblue',
   },
   link: {
     fontSize: 14,

@@ -1,4 +1,4 @@
-import { Post } from '../../../graphql/posts';
+import { Post } from '../../../../graphql';
 export interface IPostCardProps {
   post: Post;
 }

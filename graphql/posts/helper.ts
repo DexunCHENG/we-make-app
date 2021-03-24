@@ -3,13 +3,6 @@ import puppeteer from 'puppeteer';
 import { Order } from '../types';
 import { Post, SortBy } from './types';
 
-export const getPage = async () => {
-  const browser = await puppeteer.launch({ headless: false });
-  const page = await browser.newPage();
-
-  return page;
-};
-
 export const extractPageContent = async (page: puppeteer.Page) => {
   const itemList: Post[] = await page.evaluate(() => {
     const itemTitiles = document.querySelectorAll('tr.athing td:last-child');
@@ -18,10 +11,11 @@ export const extractPageContent = async (page: puppeteer.Page) => {
     const items: Post[] = [];
 
     const extractStrsFromElem = (element: HTMLElement, selectors: string[] = []) => {
+      // if no selector input, directly extract str from current elements
       if (!selectors.length) {
         return [element ? element.innerText ?? ''.trim() : ''];
       }
-
+      // extractor strs from selected elements
       return selectors.map((sel) => {
         const newElem: HTMLElement = element.querySelector(sel);
         return newElem ? newElem.innerText ?? ''.trim() : '';

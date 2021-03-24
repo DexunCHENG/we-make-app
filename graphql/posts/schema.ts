@@ -1,9 +1,8 @@
 import { gql, makeExecutableSchema } from 'apollo-server-micro';
 import puppeteer from 'puppeteer';
 
-import { Order } from '../types';
 import { WEBSITE_URL, extractPageContent, sortPosts } from './helper';
-import { Post, SortBy } from './types';
+import { Post } from './types';
 
 const typeDefs = gql`
   type Query {

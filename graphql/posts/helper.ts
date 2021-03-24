@@ -73,7 +73,6 @@ export const sortPosts = (posts: Post[] = [], sortBy: SortBy, order: Order): Pos
 const extractCommentsCount = (comments: string = ''): number => {
   const [countStr] = comments.split(' ');
   try {
-    console.log('countStr', countStr);
     const count = parseInt(countStr, 10);
     return isNaN(count) ? 0 : count;
   } catch (e) {

@@ -1,9 +1,11 @@
 # we-make-app
 
-## Set up
+## Set up and Run
 
 1. terminal run `yarn` to install necessary packages
 2. run `yarn dev` for development mode
+   or run `yarn prod` to build project and into production mode
+3. Chrome open `http://localhost:3000` to display the home page
 
 ## Data Structure
 

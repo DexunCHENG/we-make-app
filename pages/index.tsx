@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 
-import PostGrid from './post';
+import { PostGrid } from '../modules';
 
 const Home: React.FunctionComponent = () => {
   const client = new ApolloClient({

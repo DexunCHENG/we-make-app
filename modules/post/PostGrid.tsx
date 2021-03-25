@@ -6,18 +6,17 @@ import { PostCard } from './components';
 import { usePosts } from './graphql/query';
 import { useStyles } from './PostGrid.jss';
 
-const PostGrid: React.FunctionComponent = () => {
+export const PostGrid: React.FunctionComponent = () => {
   const classes = useStyles();
   const router = useRouter();
   const { page: currPage } = router.query;
   let currPageNum = parseInt(currPage as string, 10);
   currPageNum = isNaN(currPageNum) ? 1 : currPageNum;
 
-  const { posts, getPosts, loading } = usePosts(currPageNum);
+  const { posts, loading } = usePosts(currPageNum);
 
   const handleMore = () => {
     const newPage = currPageNum + 1;
-    getPosts({ offset: newPage });
     router.push(`${router.pathname}?page=${newPage}`);
   };
 
@@ -42,5 +41,3 @@ const PostGrid: React.FunctionComponent = () => {
     </div>
   );
 };
-
-export default PostGrid;
